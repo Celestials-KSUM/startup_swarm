@@ -6,4 +6,8 @@ httpx
 langchain
 langchain-groq
 langgraph
-# Add other dependencies as needed
+motor
+tavily-python
+langchain-community
+pymongo
+pydantic

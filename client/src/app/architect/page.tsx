@@ -99,7 +99,7 @@ export default function ArchitectPage() {
         if (!rawIdea.trim()) return;
         setIsLoading(true);
         try {
-            const response = await axios.post("http://localhost:5000/api/ai/chat", {
+            const response = await axios.post("http://localhost:8000/api/ai/chat", {
                 message: `I have a startup idea: "${rawIdea}". Give me a strategic first impression and some specialized architect tips for this domain.`,
                 threadId: threadId
             });
@@ -129,7 +129,7 @@ export default function ArchitectPage() {
                 return `${q?.title}: ${data.option} | Details: ${data.text}`;
             }).join("\n");
 
-            const response = await axios.post("http://localhost:5000/api/ai/chat", {
+            const response = await axios.post("http://localhost:8000/api/ai/chat", {
                 message: `User is ready for the blueprint. Context idea: ${rawIdea}. Here is the structured data:\n${consolidatedData}`,
                 threadId: threadId
             });
@@ -277,8 +277,8 @@ export default function ArchitectPage() {
                                 {[1, 2, 3, 4, 5].map((s) => (
                                     <div key={s} className="flex items-center gap-6 relative">
                                         <div className={`w-10 h-10 rounded-xl border-2 flex items-center justify-center transition-all duration-500 ${currentStep > s ? "bg-blue-600 border-blue-600 text-white" :
-                                                currentStep === s ? "bg-white border-blue-600 text-blue-600 shadow-lg shadow-blue-100" :
-                                                    "bg-white border-gray-200 text-gray-300"
+                                            currentStep === s ? "bg-white border-blue-600 text-blue-600 shadow-lg shadow-blue-100" :
+                                                "bg-white border-gray-200 text-gray-300"
                                             }`}>
                                             {currentStep > s ? <CheckCircle2 className="w-5 h-5" /> : <span className="text-sm font-black">{s}</span>}
                                         </div>
