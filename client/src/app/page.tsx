@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   BarChart3,
   ShieldCheck,
@@ -52,9 +53,9 @@ export default function Home() {
               Autonomous AI agents analyze, debate, and evaluate your startup idea — delivering a real go/no-go decision and roadmap.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="px-10 py-5 bg-[#111827] text-white rounded-full font-bold hover:bg-black transition-all uppercase tracking-[0.2em] text-xs flex items-center gap-3 shadow-xl shadow-gray-900/10 active:scale-95">
+              <Link href="/architect" className="px-10 py-5 bg-[#111827] text-white rounded-full font-bold hover:bg-black transition-all uppercase tracking-[0.2em] text-xs flex items-center gap-3 shadow-xl shadow-gray-900/10 active:scale-95">
                 Get Started <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
               <button className="px-10 py-5 bg-white/50 backdrop-blur-sm text-[#111827] border border-gray-200 rounded-full font-bold hover:bg-white hover:border-gray-300 transition-all uppercase tracking-[0.2em] text-xs flex items-center gap-3 active:scale-95">
                 See Case Studies <ExternalLink className="w-4 h-4 opacity-50" />
               </button>
