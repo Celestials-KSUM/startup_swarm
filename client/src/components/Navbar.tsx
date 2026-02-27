@@ -20,8 +20,8 @@ export default function Navbar() {
             <nav className={`
         max-w-7xl mx-auto rounded-full transition-all duration-500 flex items-center px-4 md:px-8
         ${scrolled
-                    ? "h-14 bg-white/70 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-                    : "h-16 bg-white/40 backdrop-blur-lg border border-gray-100 shadow-lg shadow-gray-200/20"
+                    ? "h-16 bg-white/70 backdrop-blur-[20px] border border-white/50 shadow-[0_30px_100px_-10px_rgba(0,0,0,0.15),0_15px_50px_-15px_rgba(0,0,0,0.1)] ring-1 ring-white/40 ring-inset"
+                    : "h-20 bg-white/30 backdrop-blur-[12px] border border-white/20 shadow-[0_20px_80px_-15px_rgba(0,0,0,0.08)] ring-1 ring-white/20 ring-inset"
                 }
       `}>
                 <div className="w-full flex items-center justify-between">
