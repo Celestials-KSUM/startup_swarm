@@ -8,6 +8,5 @@ langchain>=0.2.0
 langchain-groq>=0.1.6
 langchain-community>=0.2.0
 langgraph>=0.1.0
-sqlalchemy[asyncio]>=2.0.0
-asyncpg>=0.29.0
+motor>=3.3.0
 tavily-python>=0.3.3

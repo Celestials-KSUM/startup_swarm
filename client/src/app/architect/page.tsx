@@ -23,7 +23,13 @@ import {
     Construction,
     Sparkles,
     Lightbulb,
-    ArrowRight
+    ArrowRight,
+    Scale,
+    Coins,
+    Server,
+    Globe,
+    Truck,
+    Cpu
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
@@ -366,10 +372,19 @@ export default function ArchitectPage() {
                     </header>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        <ScoreCard title="Market Viability" score={blueprint.agentScoring?.marketReseach?.score} insight={blueprint.agentScoring?.marketReseach?.insight} icon={BarChart3} color="bg-emerald-500" />
+                        <ScoreCard title="Market Viability" score={blueprint.agentScoring?.marketResearch?.score} insight={blueprint.agentScoring?.marketResearch?.insight} icon={BarChart3} color="bg-emerald-500" />
                         <ScoreCard title="Defensibility" score={blueprint.agentScoring?.competitionIntel?.score} insight={blueprint.agentScoring?.competitionIntel?.insight} icon={ShieldCheck} color="bg-blue-500" />
                         <ScoreCard title="Execution Risk" score={blueprint.agentScoring?.executionRisk?.score} insight={blueprint.agentScoring?.executionRisk?.insight} icon={AlertCircle} color="bg-rose-500" />
+                        <ScoreCard title="Tech Feasibility" score={blueprint.agentScoring?.techFeasibility?.score} insight={blueprint.agentScoring?.techFeasibility?.insight} icon={Zap} color="bg-amber-500" />
                         <ScoreCard title="PMF Probability" score={blueprint.agentScoring?.pmfProbability?.score} insight={blueprint.agentScoring?.pmfProbability?.insight} icon={Target} color="bg-purple-500" />
+                        <ScoreCard title="Funding Readiness" score={blueprint.agentScoring?.fundingReadiness?.score} insight={blueprint.agentScoring?.fundingReadiness?.insight} icon={TrendingUp} color="bg-cyan-500" />
+                        <ScoreCard title="Legal & Compliance" score={blueprint.agentScoring?.legalCompliance?.score} insight={blueprint.agentScoring?.legalCompliance?.insight} icon={Scale} color="bg-indigo-500" />
+                        <ScoreCard title="GTM Strategy" score={blueprint.agentScoring?.gtmStrategy?.score} insight={blueprint.agentScoring?.gtmStrategy?.insight} icon={Users} color="bg-fuchsia-500" />
+                        <ScoreCard title="Unit Economics" score={blueprint.agentScoring?.unitEconomics?.score} insight={blueprint.agentScoring?.unitEconomics?.insight} icon={Coins} color="bg-lime-500" />
+                        <ScoreCard title="Scalability & Infra" score={blueprint.agentScoring?.scalabilityInfra?.score} insight={blueprint.agentScoring?.scalabilityInfra?.insight} icon={Server} color="bg-orange-500" />
+                        <ScoreCard title="ESG & Impact" score={blueprint.agentScoring?.impactSustainability?.score} insight={blueprint.agentScoring?.impactSustainability?.insight} icon={Globe} color="bg-teal-500" />
+                        <ScoreCard title="Supply Chain & Ops" score={blueprint.agentScoring?.supplyChainOps?.score} insight={blueprint.agentScoring?.supplyChainOps?.insight} icon={Truck} color="bg-yellow-500" />
+                        <ScoreCard title="Data & AI Risk" score={blueprint.agentScoring?.dataAiRisk?.score} insight={blueprint.agentScoring?.dataAiRisk?.insight} icon={Cpu} color="bg-pink-500" />
                     </div>
 
                     <div className="grid lg:grid-cols-3 gap-8">
