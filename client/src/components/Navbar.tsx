@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { BrainCircuit, ChevronDown, ArrowRight, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -25,12 +26,12 @@ export default function Navbar() {
       `}>
                 <div className="w-full flex items-center justify-between">
                     <div className="flex items-center gap-10">
-                        <div className="flex items-center gap-2 group cursor-pointer">
+                        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
                             <div className="w-8 h-8 bg-[#111827] rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12 group-hover:scale-110 duration-300">
                                 <BrainCircuit className="w-5 h-5 text-white" />
                             </div>
                             <span className="text-xl font-bold tracking-tight text-[#111827]">Startup Swarm</span>
-                        </div>
+                        </Link>
 
                         <div className="hidden lg:flex items-center gap-1 text-sm font-medium text-gray-500">
                             {[
@@ -52,11 +53,10 @@ export default function Navbar() {
                     </div>
 
                     <div className="flex items-center gap-4 text-sm font-medium">
-                        <a href="#" className="hidden sm:block text-gray-600 hover:text-black transition-colors px-2">Sign in</a>
-                        <button className="relative group overflow-hidden px-6 py-2.5 bg-[#111827] text-white rounded-full font-bold transition-all hover:pr-8 active:scale-95 shadow-lg shadow-gray-900/20">
-                            <span className="relative z-10 uppercase text-[10px] tracking-widest">Get in Touch</span>
-                            <div className="absolute top-1/2 -translate-y-1/2 right-3 opacity-0 group-hover:opacity-100 transition-all">
-                                <ArrowRight className="w-3 h-3" />
+                        <button className="relative group overflow-hidden px-8 py-3 bg-[#111827] text-white rounded-full font-bold transition-all hover:pr-10 active:scale-95 shadow-xl shadow-gray-900/10">
+                            <span className="relative z-10 uppercase text-[10px] tracking-[0.15em]">Get Started</span>
+                            <div className="absolute top-1/2 -translate-y-1/2 right-4 opacity-0 group-hover:opacity-100 transition-all">
+                                <ArrowRight className="w-4 h-4" />
                             </div>
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </button>
@@ -66,6 +66,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+
 
             {/* Subtle bottom shine effect */}
             <div className={`max-w-7xl mx-auto h-[1px] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent transition-opacity duration-1000 ${scrolled ? "opacity-100" : "opacity-0"}`} />

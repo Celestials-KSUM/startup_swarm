@@ -51,12 +51,12 @@ export default function Home() {
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-medium">
               Autonomous AI agents analyze, debate, and evaluate your startup idea — delivering a real go/no-go decision and roadmap.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-8 py-4 bg-[#111827] text-white rounded font-bold hover:bg-gray-800 transition-all uppercase tracking-widest text-sm flex items-center gap-2">
-                Launch Swarm <ChevronDown className="w-4 h-4 -rotate-90" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <button className="px-10 py-5 bg-[#111827] text-white rounded-full font-bold hover:bg-black transition-all uppercase tracking-[0.2em] text-xs flex items-center gap-3 shadow-xl shadow-gray-900/10 active:scale-95">
+                Get Started <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="px-8 py-4 bg-[#f3f4f6]/50 backdrop-blur-sm text-[#111827] border border-gray-200 rounded font-bold hover:bg-gray-100 transition-all uppercase tracking-widest text-sm flex items-center gap-2">
-                See Case Studies <ChevronDown className="w-4 h-4 -rotate-90" />
+              <button className="px-10 py-5 bg-white/50 backdrop-blur-sm text-[#111827] border border-gray-200 rounded-full font-bold hover:bg-white hover:border-gray-300 transition-all uppercase tracking-[0.2em] text-xs flex items-center gap-3 active:scale-95">
+                See Case Studies <ExternalLink className="w-4 h-4 opacity-50" />
               </button>
             </div>
           </div>
@@ -188,8 +188,8 @@ export default function Home() {
                 Synthetic Market Validation
               </div>
             </div>
-            <button className="px-10 py-5 bg-[#111827] text-white rounded font-bold hover:bg-gray-800 transition-all uppercase tracking-widest text-sm shadow-xl shadow-gray-200">
-              Get Started with Swarm
+            <button className="px-10 py-5 bg-[#111827] text-white rounded-full font-bold hover:bg-black transition-all uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-3 shadow-xl shadow-gray-900/10 active:scale-95">
+              Get Started with Swarm <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
