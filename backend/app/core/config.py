@@ -22,8 +22,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: Optional[str] = ""
     TAVILY_API_KEY: Optional[str] = ""
     
-    # Database
-    MONGO_URI: str = "mongodb://localhost:27017"
-    DATABASE_NAME: str = "startup_swarm_backend"
+    # Database (PostgreSQL via asyncpg)
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/startup_swarm"
 
 settings = Settings()

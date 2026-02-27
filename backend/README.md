@@ -55,8 +55,10 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 ## 📍 API Endpoints
 - **GET** `/`: Root health check message.
-- **GET** `/api/health`: Detailed health status.
-- **POST** `/api/ai/chat`: Chat with the AI orchestrator.
+- **GET** `/api/v1/health`: Detailed health status.
+- **POST** `/api/v1/ai/chat`: Chat with the AI orchestrator (discovery or blueprint).
+- **POST** `/api/v1/ai/analyze`: Alias for `/ai/chat` (legacy compatibility).
+- **GET** `/api/v1/ai/history/{thread_id}`: Fetch past analysis records.
 
 ## 📁 Directory Structure
 ```text
