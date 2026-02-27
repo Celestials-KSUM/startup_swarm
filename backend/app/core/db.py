@@ -1,59 +1,31 @@
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-from sqlalchemy import MetaData, Table, Column, Integer, String, DateTime, text
-from sqlalchemy.dialects.postgresql import JSONB
-import datetime
+import motor.motor_asyncio
 from app.core.config import settings
 
-# ── Schema Definition ─────────────────────────────────────────────────────────
-metadata = MetaData()
-
-chats_table = Table(
-    "chats",
-    metadata,
-    Column("id", Integer, primary_key=True, autoincrement=True),
-    Column("thread_id", String, nullable=True),
-    Column("role", String, nullable=False),
-    Column("content", String, nullable=False),
-    Column("created_at", DateTime, default=datetime.datetime.utcnow),
-)
-
-analyses_table = Table(
-    "analyses",
-    metadata,
-    Column("id", Integer, primary_key=True, autoincrement=True),
-    Column("thread_id", String, nullable=True),
-    Column("type", String, nullable=False),
-    Column("data", JSONB, nullable=True),
-    Column("created_at", DateTime, default=datetime.datetime.utcnow),
-)
-
-# ── Engine & Session Factory ──────────────────────────────────────────────────
-engine = None
-AsyncSessionLocal = None
-
+client = None
+db = None
 
 async def connect_to_db():
-    global engine, AsyncSessionLocal
-    engine = create_async_engine(settings.DATABASE_URL, echo=False, future=True)
-    AsyncSessionLocal = async_sessionmaker(
-        engine, class_=AsyncSession, expire_on_commit=False
-    )
-    # Auto-create tables on startup
-    async with engine.begin() as conn:
-        await conn.run_sync(metadata.create_all)
-    print(f"Connected to PostgreSQL: {settings.DATABASE_URL}")
-
+    global client, db
+    # Use MONGO_URI from settings or fallback to default
+    uri = getattr(settings, "MONGO_URI", "mongodb://localhost:27017/startup_swarm")
+    client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+    db = client.get_database("startup_swarm") # Explicitly define the database name
+    
+    # Send a ping to confirm a successful connection
+    try:
+        await client.admin.command('ping')
+        print(f"Connected to MongoDB: {uri}")
+    except Exception as e:
+        print(f"Failed to connect to MongoDB: {e}")
 
 async def close_db_connection():
-    global engine
-    if engine:
-        await engine.dispose()
-    print("Closed PostgreSQL connection.")
-
+    global client
+    if client:
+        client.close()
+    print("Closed MongoDB connection.")
 
 async def get_database():
-    """FastAPI dependency — yields an AsyncSession per request."""
-    if AsyncSessionLocal is None:
-        raise RuntimeError("Database not initialized. Is PostgreSQL running?")
-    async with AsyncSessionLocal() as session:
-        yield session
+    """FastAPI dependency — yields the async MongoDB database object."""
+    if db is None:
+        raise RuntimeError("Database not initialized. Is MongoDB running?")
+    yield db
