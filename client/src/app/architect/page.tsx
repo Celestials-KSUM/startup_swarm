@@ -99,7 +99,7 @@ export default function ArchitectPage() {
         if (!rawIdea.trim()) return;
         setIsLoading(true);
         try {
-            const response = await axios.post("http://localhost:8000/api/ai/chat", {
+            const response = await axios.post("http://localhost:8000/api/v1/ai/chat", {
                 message: `I have a startup idea: "${rawIdea}". Give me a strategic first impression and some specialized architect tips for this domain.`,
                 threadId: threadId
             });
@@ -129,7 +129,7 @@ export default function ArchitectPage() {
                 return `${q?.title}: ${data.option} | Details: ${data.text}`;
             }).join("\n");
 
-            const response = await axios.post("http://localhost:8000/api/ai/chat", {
+            const response = await axios.post("http://localhost:8000/api/v1/ai/chat", {
                 message: `User is ready for the blueprint. Context idea: ${rawIdea}. Here is the structured data:\n${consolidatedData}`,
                 threadId: threadId
             });
