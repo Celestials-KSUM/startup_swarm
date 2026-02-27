@@ -14,36 +14,13 @@ import {
   ChevronDown,
   ExternalLink
 } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-[#111827]">
-      {/* Navbar */}
-      <div className="fixed top-6 left-0 right-0 z-50 px-6">
-        <nav className="max-w-7xl mx-auto bg-white/80 backdrop-blur-xl border border-gray-100 rounded-full h-16 flex items-center px-4 md:px-8 shadow-lg shadow-gray-200/50">
-          <div className="w-full flex items-center justify-between">
-            <div className="flex items-center gap-10">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#111827] rounded-lg flex items-center justify-center">
-                  <BrainCircuit className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold tracking-tight text-[#111827]">Startup Swarm</span>
-              </div>
-              <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-600">
-                <a href="#" className="hover:text-black flex items-center gap-1">Solutions <ChevronDown className="w-4 h-4" /></a>
-                <a href="#" className="hover:text-black flex items-center gap-1">Agent Platform <ChevronDown className="w-4 h-4" /></a>
-                <a href="#" className="hover:text-black flex items-center gap-1">Marketplace <ArrowRight className="w-3 h-3 -rotate-45" /></a>
-              </div>
-            </div>
-            <div className="flex items-center gap-6 text-sm font-medium">
-              <a href="#" className="hidden sm:block hover:text-black">Sign in</a>
-              <button className="px-5 py-2.5 bg-[#111827] text-white rounded-full font-bold hover:bg-gray-800 transition-colors uppercase text-[10px] tracking-widest shrink-0">
-                Get in Touch
-              </button>
-            </div>
-          </div>
-        </nav>
-      </div>
+      <Navbar />
+
 
 
       {/* Hero Section with Ripple Background */}
