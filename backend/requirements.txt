@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic-settings
+python-dotenv
+httpx
+langchain
+langchain-groq
+langgraph
+# Add other dependencies as needed
